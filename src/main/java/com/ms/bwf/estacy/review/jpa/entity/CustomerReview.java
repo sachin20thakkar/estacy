@@ -1,4 +1,4 @@
-package com.ms.bwf.estacy.review.repository;
+package com.ms.bwf.estacy.review.jpa.entity;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
