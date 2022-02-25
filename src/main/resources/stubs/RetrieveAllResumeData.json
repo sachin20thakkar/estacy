@@ -1,0 +1,28 @@
+{
+  "candidateProfiles": [
+    {
+      "posTrackerId": "P000001",
+      "candidateId": "C00001",
+      "candidateName": "Devendar",
+      "contactNumber": "XXXXXXXXX",
+      "interviewedById": "XXXXX",
+      "interviewedByName": "Shabir M",
+      "interviewedDate": "02/24/2022",
+      "vendor": "Tech Mahindra",
+      "outcome": "Shortlisted",
+      "joined": true
+    },
+    {
+      "posTrackerId": "P000001",
+      "candidateId": "C00002",
+      "candidateName": "Arjun",
+      "contactNumber": "XXXXXXXXX",
+      "interviewedById": "XXXXX",
+      "interviewedByName": "Sayam S",
+      "interviewedDate": "02/23/2022",
+      "vendor": "Capgemini",
+      "outcome": "Rejected",
+      "joined": false
+    }
+  ]
+}
