@@ -4,6 +4,10 @@ import com.ms.bwf.estacy.review.jpa.entity.ConsultantReview;
 import com.ms.bwf.estacy.review.jpa.repository.ConsultantReviewRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
+
+import java.util.Optional;
+
 @Slf4j
 @Service
 public class ConsultantReviewDbServices {
@@ -20,9 +24,10 @@ public class ConsultantReviewDbServices {
         consultantReviewRepository.save(consultantReview);
     }
 
-    public void getReviewDataForMsID(String msId)
+    public ConsultantReview getReviewDataForMsID(String msId)
     {
+        Optional<ConsultantReview> consultantReview = consultantReviewRepository.findByConsultantMSID(msId);
 
-        consultantReviewRepository.findByConsultantMSID(msId);
+        return  consultantReview.orElse(new ConsultantReview());
     }
 }
