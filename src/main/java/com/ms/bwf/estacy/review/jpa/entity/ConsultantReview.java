@@ -1,6 +1,9 @@
 package com.ms.bwf.estacy.review.jpa.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.Column;
@@ -11,8 +14,11 @@ import javax.persistence.Table;
 @Slf4j
 @Data
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "Consultant_review")
-public class CustomerReview {
+public class ConsultantReview {
     @Column(name = "id")
     Long id;
     @Id
@@ -30,6 +36,8 @@ public class CustomerReview {
     String AreasOfImporovemtnt;
     @Column(name = "rating")
     String rating;
+    @Column(name = "avgrating")
+    String avgRating;
     @Column(name = "tech_family")
     String tech_family;
     @Column(name = "last_updated_date")
