@@ -1,0 +1,24 @@
+{
+  "positionDetails": [
+    {
+      "pTrackerId": "P00001",
+      "posName": "Senior Systems Engineer",
+      "resourceId": "XXXXX",
+      "resourceName": "Sachin Thakkar",
+      "posTitle": "Manager",
+      "posCity": "MUMBAI",
+      "posCostCentre": "XXXXX",
+      "posType": "Contingent"
+    },
+    {
+      "pTrackerId": "P00002",
+      "posName": "Design Engineer",
+      "resourceId": "XXXXX",
+      "resourceName": "Sachin Thakkar",
+      "posTitle": "Senior Associate",
+      "posCity": "BANGALORE",
+      "posCostCentre": "XXXXX",
+      "posType": "FTE"
+    }
+  ]
+}
