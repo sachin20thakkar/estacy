@@ -11,10 +11,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -30,10 +30,9 @@ public class ConsultantReviewController {
         return new ResponseEntity<>("Success",HttpStatus.OK);
     }
 
-    @PostMapping(value = "/retrieve",consumes = "application/json")
-    public ResponseEntity<String> retrieveConsultantReview(@RequestBody String msID)
+    @GetMapping (value = "/retrieve")
+    public ResponseEntity<ConsultantReview> retrieveConsultantReview(@RequestParam String msID)
     {
-        consultantReviewDbServices.getReviewDataForMsID(msID);
-        return new ResponseEntity<>("Success",HttpStatus.OK);
+        return ResponseEntity.ok(consultantReviewDbServices.getReviewDataForMsID(msID));
     }
 }
