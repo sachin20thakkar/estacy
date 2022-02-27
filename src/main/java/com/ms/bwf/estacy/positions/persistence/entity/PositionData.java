@@ -1,30 +1,35 @@
 package com.ms.bwf.estacy.positions.persistence.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "POSITION_DETAILS")
+@Table(name = "position_details")
+@JsonIgnoreProperties(ignoreUnknown = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class PositionData {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "TRACKER_ID")
     String trackerId;
+    @Column(name = "MANAGER_ID")
+    String managerId;
     @Column(name = "RESOURCE_ID")
     String resourceId;
     @Column(name = "RESOURCE_NAME")
     String resourceName;
-    @Column(name = "POSITION_TITLE")
+    @Column(name = "RESOURCE_STATUS")
+    String resourceStatus;
+    @Column(name = "TITLE")
     String title;
     @Column(name = "CITY")
     String city;
