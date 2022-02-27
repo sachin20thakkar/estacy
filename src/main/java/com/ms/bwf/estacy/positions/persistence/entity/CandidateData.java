@@ -1,43 +1,42 @@
 package com.ms.bwf.estacy.positions.persistence.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.sql.Timestamp;
+import javax.persistence.*;
+//import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "CANDIDATE_DATA")
+@Table(name = "candidate_data")
+@JsonIgnoreProperties(ignoreUnknown = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class CandidateData {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CANDIDATE_ID")
-    String candidateId;
-    @Column(name = "POSITION_ID")
+    int candidateId;
+    @Column(name = "POS_TRACKER_ID")
     String posTrackerId;
     @Column(name = "CANDIDATE_NAME")
     String candidateName;
-    @Column(name = "CONTACT_NO")
+    @Column(name = "CONTACT_NUM")
     String contactNum;
-    @Column(name = "INTERVIEWED_BY_ID")
+    @Column(name = "INTERVIEWER_ID")
     String interviewerId;
-    @Column(name = "INTERVIEWED_BY_NAME")
+    @Column(name = "INTERVIEWER_NAME")
     String interviewerName;
     @Column(name = "INTERVIEWED_DATE")
-    Timestamp interviewedDate;
+    String interviewedDate;
     @Column(name = "VENDOR")
     String vendor;
     @Column(name = "OUTCOME")
     String outcome;
-    @Column(name = "JOINED_INDICATOR")
-    boolean joined;
+    @Column(name = "JOINED")
+    String joined;
 }

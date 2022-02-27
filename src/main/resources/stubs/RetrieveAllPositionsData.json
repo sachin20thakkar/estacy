@@ -1,24 +1,26 @@
 {
   "positionDetails": [
     {
-      "pTrackerId": "P00001",
+      "trackerId": "P00001",
       "posName": "Senior Systems Engineer",
-      "resourceId": "XXXXX",
+      "resourceId": "1235",
       "resourceName": "Sachin Thakkar",
-      "posTitle": "Manager",
-      "posCity": "MUMBAI",
-      "posCostCentre": "XXXXX",
-      "posType": "Contingent"
+      "resourceStatus": "",
+      "title": "Manager",
+      "city": "MUMBAI",
+      "costCentre": "7302 DBC",
+      "positionType": "Contingent"
     },
     {
-      "pTrackerId": "P00002",
+      "trackerId": "P00002",
       "posName": "Design Engineer",
-      "resourceId": "XXXXX",
-      "resourceName": "Sachin Thakkar",
-      "posTitle": "Senior Associate",
-      "posCity": "BANGALORE",
-      "posCostCentre": "XXXXX",
-      "posType": "FTE"
+      "resourceId": "2345",
+      "resourceName": "Sachin Tendulkar",
+      "resourceStatus": "Active",
+      "title": "Senior Associate",
+      "city": "BANGALORE",
+      "costCentre": "7305 DBF",
+      "positionType": "FTE"
     }
   ]
 }
