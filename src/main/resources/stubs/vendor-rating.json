@@ -1,0 +1,9 @@
+{
+  "id": "",
+  "categories": ["Accenture", "Infosys", "TCS", "Tech Mahindra" , "Sapient"],
+  "series": [{
+    "name": "Rating",
+    "type": "column",
+    "data":[2, 3, 3.5, 4, 1.6]
+  }]
+}
