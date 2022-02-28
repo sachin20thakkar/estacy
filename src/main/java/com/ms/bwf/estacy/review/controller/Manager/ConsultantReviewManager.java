@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @Service
 @AllArgsConstructor
 public class ConsultantReviewManager {
+    private static final String PENDING = "pending";
     private final ConsultantReviewDbServices consultantReviewDbServices;
     private final ObjectMapper objectMapper;
     private final UtilityServices utilityServices;
@@ -30,7 +31,7 @@ public class ConsultantReviewManager {
                 .id(consultantReviewRequest.getId())
                 .feedback(consultantReviewRequest.getFeedback())
                 .location(consultantReviewRequest.getLocation())
-                .rating(utilityServices.calculateRatings(consultantReviewRequest.getDetails()))
+                .rating(consultantReviewRequest.getStatus().equalsIgnoreCase(PENDING)?"":utilityServices.calculateRatings(consultantReviewRequest.getDetails()))
                 .last_updated_date(String.valueOf(LocalDateTime.now()))
                 .tech_family(consultantReviewRequest.getTechFamily())
                 .status(consultantReviewRequest.getStatus())
