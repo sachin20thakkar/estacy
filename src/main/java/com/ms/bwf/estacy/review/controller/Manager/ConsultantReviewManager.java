@@ -25,7 +25,7 @@ public class ConsultantReviewManager {
     public void submitAndSave(ConsultantReviewRequest consultantReviewRequest) {
         ConsultantReview consultantReview = ConsultantReview.builder()
                 .consultantMSID(consultantReviewRequest.getConsultantMSID())
-                .AreasOfImprovement(consultantReviewRequest.getAreasOfImporovemtnt())
+                .comment(consultantReviewRequest.getComment())
                 .details(objectMapper.writeValueAsString(consultantReviewRequest.getDetails()))
                 .id(consultantReviewRequest.getId())
                 .feedback(consultantReviewRequest.getFeedback())
@@ -33,6 +33,7 @@ public class ConsultantReviewManager {
                 .rating(utilityServices.calculateRatings(consultantReviewRequest.getDetails()))
                 .last_updated_date(String.valueOf(LocalDateTime.now()))
                 .tech_family(consultantReviewRequest.getTechFamily())
+                .status(consultantReviewRequest.getStatus())
                 .vendor(consultantReviewRequest.getVendor()).build();
 
         consultantReviewDbServices.saveDataToDb(consultantReview);

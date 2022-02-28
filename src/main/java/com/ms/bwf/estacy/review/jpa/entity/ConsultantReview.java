@@ -30,12 +30,14 @@ public class ConsultantReview {
     String details;
     @Column(name = "feedback")
     String feedback;
-    @Column(name = "areas_of_improvement")
-    String AreasOfImprovement;
+    @Column(name = "comment")
+    String comment;
     @Column(name = "rating")
     String rating;
     @Column(name = "tech_family")
     String tech_family;
+    @Column(name = "status")
+    String status;
     @Column(name = "last_updated_date")
     String last_updated_date;
 

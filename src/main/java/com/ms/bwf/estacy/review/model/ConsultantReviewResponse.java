@@ -18,8 +18,9 @@ public class ConsultantReviewResponse {
     String location;
     Details details;
     String feedback;
-    String AreasOfImporovemtnt;
+    String comment;
     String rating;
     String techFamily;
+    String status;
     Timestamp lastUpdatedDate;
 }

@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.sql.Timestamp;
 import java.util.Optional;
 
 @Slf4j
@@ -34,6 +35,8 @@ public class ConsultantReviewDbServices {
         Optional<ConsultantReview> consultantReview = consultantReviewRepository.findByConsultantMSID(msId);
         if (consultantReview.isPresent()) {
             consultantReviewResponse = mappingToReponseObject(consultantReview.get());
+        }else {
+            log.error("No record found for this ID");
         }
 
         return consultantReviewResponse;
@@ -41,13 +44,15 @@ public class ConsultantReviewDbServices {
 
     private ConsultantReviewResponse mappingToReponseObject(ConsultantReview consultantReview) throws JsonProcessingException {
         ConsultantReviewResponse consultantReviewResponse = ConsultantReviewResponse.builder()
-                .AreasOfImporovemtnt(consultantReview.getAreasOfImprovement())
+                .comment(consultantReview.getComment())
                 .consultantMSID(consultantReview.getConsultantMSID())
                 .feedback(consultantReview.getFeedback())
                 .location(consultantReview.getLocation())
                 .rating(consultantReview.getRating())
                 .vendor(consultantReview.getVendor())
-                .techFamily(consultantReview.getTech_family()).details(getDetailRatings(consultantReview.getDetails()))
+                .techFamily(consultantReview.getTech_family())
+                .details(getDetailRatings(consultantReview.getDetails()))
+                .status(consultantReview.getStatus())
                 .build();
         return consultantReviewResponse;
     }

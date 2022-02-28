@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.sql.Timestamp;
-
 @Data
 @AllArgsConstructor
 @Builder
@@ -16,8 +14,8 @@ public class ConsultantReviewRequest {
     String location;
     Details details;
     String feedback;
-    String AreasOfImporovemtnt;
+    String comment;
     String rating;
     String techFamily;
-    Timestamp lastUpdatedDate;
+    String status;
 }
