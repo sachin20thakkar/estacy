@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Slf4j
 @Data
@@ -19,7 +16,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Table(name = "Consultant_review")
 public class ConsultantReview {
-    @Column(name = "id")
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @Id
     @Column(name = "consultant_MSID")
@@ -32,12 +30,10 @@ public class ConsultantReview {
     String details;
     @Column(name = "feedback")
     String feedback;
-    @Column(name = "AreasOfImporovemtnt")
-    String AreasOfImporovemtnt;
+    @Column(name = "areas_of_improvement")
+    String AreasOfImprovement;
     @Column(name = "rating")
     String rating;
-    @Column(name = "avgrating")
-    String avgRating;
     @Column(name = "tech_family")
     String tech_family;
     @Column(name = "last_updated_date")

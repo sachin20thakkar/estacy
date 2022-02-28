@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ms.bwf.estacy.review.controller.Manager.ConsultantReviewManager;
 import com.ms.bwf.estacy.review.jpa.entity.ConsultantReview;
 import com.ms.bwf.estacy.review.model.ConsultantReviewRequest;
+import com.ms.bwf.estacy.review.model.ConsultantReviewResponse;
 import com.ms.bwf.estacy.review.services.ConsultantReviewDbServices;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -21,18 +22,23 @@ import java.util.Optional;
 @RequestMapping(value = "/estacy")
 public class ConsultantReviewController {
     private final ConsultantReviewDbServices consultantReviewDbServices;
-    private final ConsultantReviewManager consultantReviewManager ;
+    private final ConsultantReviewManager consultantReviewManager;
     private final ObjectMapper objectMapper;
-    @PostMapping(value = "/submit",consumes = "application/json")
+
+    @PostMapping(value = "/submit", consumes = "application/json")
     public ResponseEntity<String> saveAndSubmitConsultantReview(@RequestBody ConsultantReviewRequest consultantReviewRequest) throws JsonProcessingException {
-        log.info("request object for submit {}",objectMapper.writeValueAsString(consultantReviewRequest));
+        log.info("request object for submit {}", objectMapper.writeValueAsString(consultantReviewRequest));
         consultantReviewManager.submitAndSave(consultantReviewRequest);
-        return new ResponseEntity<>("Success",HttpStatus.OK);
+        return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 
-    @GetMapping (value = "/retrieve")
-    public ResponseEntity<ConsultantReview> retrieveConsultantReview(@RequestParam String msID)
-    {
-        return ResponseEntity.ok(consultantReviewDbServices.getReviewDataForMsID(msID));
+    @GetMapping(value = "/retrieve")
+    public ResponseEntity<ConsultantReviewResponse> retrieveConsultantReview(@RequestParam String msID) {
+        try {
+            return ResponseEntity.ok(consultantReviewDbServices.getReviewDataForMsID(msID));
+        } catch (JsonProcessingException e) {
+
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }
