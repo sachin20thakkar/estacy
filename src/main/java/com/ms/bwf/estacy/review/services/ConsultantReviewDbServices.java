@@ -24,7 +24,7 @@ public class ConsultantReviewDbServices {
         this.objectMapper = objectMapper;
     }
 
-    public void getDataFromDbServices(ConsultantReview consultantReview) {
+    public void saveDataToDb(ConsultantReview consultantReview) {
 
         consultantReviewRepository.save(consultantReview);
     }
